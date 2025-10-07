@@ -183,12 +183,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+            padding: 1rem clamp(1rem, 4vw, 3rem);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 10, 10, 0.5);
+            background: rgba(10, 10, 10, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -216,8 +216,8 @@
         }
 
         .logo svg {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             transition: transform 0.4s ease;
         }
         
@@ -227,11 +227,12 @@
 
         /* --- REDESIGNED MENU --- */
         .menu-btn {
-            width: 45px;
-            height: 35px;
+            width: 40px;
+            height: 30px;
             position: relative;
             transition: var(--transition);
             z-index: 1001;
+            cursor: pointer;
         }
 
         .menu-btn span {
@@ -248,9 +249,9 @@
         .menu-btn span:nth-child(3) { bottom: 0; width: 50%; }
         .menu-btn:hover span { width: 100%; }
         .menu-btn.active span { width: 100% !important; }
-        .menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(12px, 12px); }
+        .menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
         .menu-btn.active span:nth-child(2) { opacity: 0; }
-        .menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(12px, -12px); }
+        .menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
 
         .menu-overlay {
             position: fixed;
@@ -263,12 +264,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            clip-path: circle(0px at calc(100% - 75px) 60px);
+            clip-path: circle(0px at calc(100% - 50px) 45px);
             transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
         .menu-overlay.active {
-            clip-path: circle(150% at calc(100% - 75px) 60px);
+            clip-path: circle(150% at calc(100% - 50px) 45px);
         }
         
         .menu-container {
@@ -277,7 +278,8 @@
             justify-content: center;
             width: 90%;
             max-width: 1200px;
-            gap: 5rem;
+            gap: 4rem;
+            padding: 2rem 0;
         }
 
         .menu-items {
@@ -287,18 +289,19 @@
         }
 
         .menu-items li {
-            margin: 0.5rem 0; /* Reduced from 1rem to bring items closer */
+            margin: 0.5rem 0;
             overflow: hidden;
         }
 
         .menu-items a {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(1.8rem, 5vw, 3rem);
             font-weight: 600;
             color: var(--gray-light);
             text-decoration: none;
             display: inline-block;
             transition: var(--transition);
+            padding: 0.5rem 0;
         }
         
         .menu-items a:hover {
@@ -307,8 +310,8 @@
         }
 
         .menu-image {
-            flex-basis: 300px;
-            height: 400px;
+            flex-basis: 250px;
+            height: 350px;
             background: #111;
             border-radius: 12px;
             overflow: hidden;
@@ -339,7 +342,7 @@
         .skills-ticker {
             display: flex;
             overflow: hidden;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             border-top: 1px solid #222;
             border-bottom: 1px solid #222;
         }
@@ -350,15 +353,18 @@
         }
         .skill-item {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2rem;
+            font-size: clamp(1.2rem, 4vw, 2rem);
             font-weight: 600;
             color: var(--gray-light);
-            margin: 0 2rem;
+            margin: 0 1.5rem;
             white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .skill-item span {
+        .skill-item i {
             color: var(--accent);
-            margin-right: 1rem;
+            font-size: 1.2em;
         }
         @keyframes scroll {
             from { transform: translateX(0); }
@@ -424,7 +430,7 @@
         /* Sections */
         section {
             min-height: 100vh;
-            padding: 6rem clamp(1.5rem, 5vw, 4rem);
+            padding: 5rem clamp(1rem, 4vw, 3rem);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -437,6 +443,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            padding-top: 8rem;
         }
 
         .hero-background {
@@ -473,7 +480,7 @@
 
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3rem, 10vw, 8rem);
+            font-size: clamp(2.5rem, 10vw, 6rem);
             font-weight: 700;
             letter-spacing: -0.03em;
             margin-bottom: 1.5rem;
@@ -489,6 +496,8 @@
         
         .hero-line {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 0.25em;
         }
         
@@ -529,12 +538,13 @@
         }
 
         .hero p.subtitle {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             color: var(--gray);
             max-width: 600px;
             margin: 0 auto 2.5rem auto;
             opacity: 0;
             animation: fadeInUp 1s ease forwards 2.2s;
+            line-height: 1.6;
         }
 
         .hero .subtitle .typewriter {
@@ -550,7 +560,7 @@
         /* Premium CTA Button */
         .cta-button {
             display: inline-block;
-            padding: 1.2rem 3rem;
+            padding: 1rem 2.5rem;
             background: transparent;
             color: var(--foreground);
             font-family: 'Space Grotesk', sans-serif;
@@ -563,6 +573,8 @@
             opacity: 0;
             animation: fadeInUp 1s ease forwards 2.4s;
             border: 1px solid var(--accent);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            min-width: 200px;
         }
 
         .cta-button::before {
@@ -597,7 +609,7 @@
 
         /* Skills Section with card flip effect */
         .skills {
-            padding: 6rem clamp(1.5rem, 5vw, 4rem);
+            padding: 5rem clamp(1rem, 4vw, 3rem);
             background: var(--background-alt);
             position: relative;
         }
@@ -605,13 +617,13 @@
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
         .skill-card {
             background: linear-gradient(135deg, #111 0%, #151515 100%);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 15px;
             transition: var(--transition);
             border: 1px solid transparent;
@@ -644,8 +656,8 @@
         }
 
         .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
             display: inline-block;
             animation: float 3s ease-in-out infinite;
             animation-delay: calc(var(--i) * 0.2s);
@@ -658,7 +670,7 @@
 
         .skill-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             background: linear-gradient(90deg, var(--foreground) 0%, var(--gray-light) 100%);
             -webkit-background-clip: text;
@@ -670,14 +682,14 @@
 
         .skill-desc {
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.6;
             position: relative;
             z-index: 2;
         }
 
         .skill-tags {
-            margin-top: 1.5rem;
+            margin-top: 1.2rem;
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
@@ -702,14 +714,14 @@
 
         /* Projects Section with 3D cards */
         .projects {
-            padding: 6rem clamp(1.5rem, 5vw, 4rem);
+            padding: 5rem clamp(1rem, 4vw, 3rem);
         }
 
         .section-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 700;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             position: relative;
             display: inline-block;
             letter-spacing: -0.02em;
@@ -735,17 +747,17 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
         }
 
         .project-card {
             position: relative;
-            height: 400px;
+            height: 350px;
             background: #111;
             overflow: hidden;
-            border-radius: 20px;
+            border-radius: 15px;
             transition: var(--transition);
             transform-style: preserve-3d;
             cursor: none;
@@ -828,7 +840,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 2rem;
+            padding: 1.5rem;
             opacity: 0;
             transition: var(--transition);
             z-index: 2;
@@ -840,7 +852,7 @@
 
         .project-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
             transform: translateY(20px);
@@ -855,7 +867,7 @@
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transform: translateY(20px);
             transition: var(--transition);
             transition-delay: 0.1s;
@@ -890,19 +902,20 @@
         }
 
         .gallery-note {
-            margin-top: 3rem;
-            padding: 2rem;
+            margin-top: 2.5rem;
+            padding: 1.5rem;
             background: linear-gradient(135deg, rgba(0, 255, 178, 0.05) 0%, rgba(255, 0, 102, 0.05) 100%);
             border-left: 3px solid var(--accent);
             border-radius: 10px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--gray-light);
             font-style: italic;
+            line-height: 1.6;
         }
 
         /* Journey Timeline - Enhanced */
         .journey {
-            padding: 6rem clamp(1.5rem, 5vw, 4rem);
+            padding: 5rem clamp(1rem, 4vw, 3rem);
             background: var(--background-alt);
             position: relative;
         }
@@ -910,14 +923,13 @@
         .timeline {
             position: relative;
             max-width: 900px;
-            margin: 4rem auto 0;
+            margin: 3rem auto 0;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 20px;
             width: 3px;
             height: 100%;
             background: linear-gradient(to bottom, var(--accent) 0%, var(--accent-secondary) 100%);
@@ -926,14 +938,19 @@
 
         .timeline-item {
             display: flex;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
             position: relative;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: 50%;
+            left: 20px;
+            top: 1.5rem;
             transform: translateX(-50%);
             width: 20px;
             height: 20px;
@@ -949,27 +966,15 @@
             background: var(--accent);
         }
 
-        .timeline-item:nth-child(odd) {
-            justify-content: flex-start;
-        }
-
-        .timeline-item:nth-child(even) {
-            justify-content: flex-end;
-        }
-
         .timeline-content {
-            width: calc(50% - 50px);
-            padding: 2rem;
+            width: calc(100% - 60px);
+            margin-left: 50px;
+            padding: 1.5rem;
             background: linear-gradient(135deg, #111 0%, #151515 100%);
             border-radius: 15px;
             border-left: 3px solid var(--accent);
             position: relative;
             transition: var(--transition);
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            border-left: none;
-            border-right: 3px solid var(--accent-secondary);
         }
 
         .timeline-content:hover {
@@ -978,7 +983,7 @@
         }
 
         .timeline-date {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--accent);
             margin-bottom: 0.5rem;
             font-family: 'Space Mono', monospace;
@@ -987,37 +992,41 @@
 
         .timeline-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
             color: var(--foreground);
         }
 
         .timeline-desc {
             color: var(--gray-light);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.6;
         }
 
         /* Education Section */
         .education {
-            padding: 6rem clamp(1.5rem, 5vw, 4rem);
+            padding: 5rem clamp(1rem, 4vw, 3rem);
         }
 
         .education-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
         .education-card {
             background: linear-gradient(135deg, #111 0%, #151515 100%);
-            padding: 2rem;
+            padding: 1.8rem;
             border-radius: 15px;
             border: 1px solid #222;
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .education-card::before {
@@ -1044,7 +1053,7 @@
         }
 
         .education-icon {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 1rem;
             position: relative;
             z-index: 2;
@@ -1052,7 +1061,7 @@
 
         .education-level {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
             position: relative;
             z-index: 2;
@@ -1060,15 +1069,16 @@
 
         .education-details {
             color: var(--gray-light);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 0.5rem;
             position: relative;
             z-index: 2;
+            line-height: 1.5;
         }
 
         .education-year {
             color: var(--accent);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             position: relative;
             z-index: 2;
@@ -1128,7 +1138,7 @@
 
         /* About Section - Enhanced */
         .about {
-            padding: 6rem clamp(1.5rem, 5vw, 4rem);
+            padding: 5rem clamp(1rem, 4vw, 3rem);
         }
 
         .about-content {
@@ -1137,9 +1147,9 @@
         }
 
         .about-text {
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
-            line-height: 1.8;
-            margin-bottom: 2rem;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            line-height: 1.7;
+            margin-bottom: 1.8rem;
             color: var(--gray-light);
         }
 
@@ -1156,16 +1166,16 @@
         /* Contact Section - Premium */
         .contact {
             text-align: center;
-            padding: 8rem clamp(1.5rem, 5vw, 4rem);
+            padding: 6rem clamp(1rem, 4vw, 3rem);
             position: relative;
             background: var(--background-alt);
         }
 
         .contact h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 700;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
             background: linear-gradient(90deg, var(--foreground) 0%, var(--accent) 50%, var(--foreground) 100%);
             background-size: 200% 100%;
@@ -1176,14 +1186,15 @@
         }
 
         .contact p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             color: var(--gray-light);
             max-width: 600px;
-            margin: 0 auto 3rem auto;
+            margin: 0 auto 2.5rem auto;
+            line-height: 1.6;
         }
 
         .contact-link {
-            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-size: clamp(1.4rem, 4vw, 2.5rem);
             color: var(--foreground);
             text-decoration: none;
             position: relative;
@@ -1191,6 +1202,7 @@
             transition: var(--transition);
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 600;
+            word-break: break-all;
         }
 
         .contact-link::before {
@@ -1217,20 +1229,21 @@
 
         /* Footer - Enhanced */
         footer {
-            padding: 3rem clamp(1.5rem, 5vw, 4rem);
+            padding: 2.5rem clamp(1rem, 4vw, 3rem);
             border-top: 1px solid #222;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem;
-            font-size: 0.9rem;
+            gap: 1.5rem;
+            font-size: 0.85rem;
             color: var(--gray);
             background: linear-gradient(to bottom, var(--background) 0%, #050505 100%);
+            text-align: center;
         }
 
         .social-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -1245,6 +1258,8 @@
             align-items: center;
             gap: 0.5rem;
             position: relative;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
         }
 
         .social-links a::after {
@@ -1268,7 +1283,7 @@
         }
 
         .social-icon {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             transition: transform 0.8s ease;
         }
 
@@ -1293,26 +1308,26 @@
         }
 
         .shape-1 {
-            width: 600px;
-            height: 600px;
+            width: 400px;
+            height: 400px;
             background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-            top: -300px;
-            right: -300px;
+            top: -200px;
+            right: -200px;
         }
 
         .shape-2 {
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 70%);
-            bottom: -200px;
-            left: -200px;
+            bottom: -150px;
+            left: -150px;
             animation-delay: 5s;
             animation-direction: reverse;
         }
 
         .shape-3 {
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             background: radial-gradient(circle, var(--accent-tertiary) 0%, transparent 70%);
             top: 50%;
             left: 50%;
@@ -1328,37 +1343,28 @@
         }
 
         /* Smooth scroll reveal - Enhanced */
-        .reveal {
+        .reveal, .reveal-left, .reveal-right {
             opacity: 0;
-            transform: translateY(30px);
             transition: var(--transition-slow);
         }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        .reveal {
+            transform: translateY(30px);
         }
 
         .reveal-left {
-            opacity: 0;
             transform: translateX(-30px);
-            transition: var(--transition-slow);
-        }
-
-        .reveal-left.active {
-            opacity: 1;
-            transform: translateX(0);
         }
 
         .reveal-right {
-            opacity: 0;
             transform: translateX(30px);
-            transition: var(--transition-slow);
         }
 
+        .reveal.active,
+        .reveal-left.active,
         .reveal-right.active {
             opacity: 1;
-            transform: translateX(0);
+            transform: translate(0, 0);
         }
 
         /* --- KEY RESPONSIVE ENHANCEMENTS --- */
@@ -1369,10 +1375,58 @@
                 gap: 2rem;
             }
             .menu-image {
-                flex-basis: 250px;
-                height: 350px;
+                flex-basis: 200px;
+                height: 280px;
+            }
+            
+            .project-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            .skill-card, .education-card {
+                padding: 1.8rem;
             }
         }
+        
+        /* Desktop Journey Timeline */
+        @media (min-width: 768px) {
+            .timeline::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .timeline-item {
+                width: 100%;
+                margin-bottom: 4rem;
+                display: block; /* Override flex */
+            }
+            .timeline-item::before {
+                left: 50%;
+                top: 1.5rem;
+            }
+            .timeline-content {
+                width: calc(50% - 45px);
+                margin: 0;
+            }
+            /* ODD items -> LEFT */
+            .timeline-item:nth-child(odd) .timeline-content {
+                float: left;
+                text-align: right;
+                border-left: none;
+                border-right: 3px solid var(--accent);
+            }
+            /* EVEN items -> RIGHT */
+            .timeline-item:nth-child(even) .timeline-content {
+                float: right;
+                border-left: 3px solid var(--accent);
+            }
+            /* Clearfix for the container */
+            .timeline-item::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        }
+
 
         /* Mobile Optimizations (320px - 767px) */
         @media (max-width: 767px) {
@@ -1385,26 +1439,32 @@
             }
             
             nav {
-                padding: 1rem 1.5rem;
+                padding: 0.8rem 1rem;
+            }
+            
+            .logo svg {
+                width: 30px;
+                height: 30px;
             }
             
             .menu-btn {
-                cursor: pointer;
-                position: absolute;
-                right: 1.5rem;
-                top: 50%;
-                transform: translateY(-50%);
+                width: 35px;
+                height: 25px;
             }
             
             .menu-overlay {
-                 clip-path: circle(0px at calc(100% - 45px) 40px);
+                 clip-path: circle(0px at calc(100% - 35px) 35px);
             }
             .menu-overlay.active {
-                 clip-path: circle(150% at calc(100% - 45px) 40px);
+                 clip-path: circle(150% at calc(100% - 35px) 35px);
+            }
+
+            .hero {
+                padding-top: 6rem;
             }
 
             .hero h1 {
-                font-size: clamp(2.8rem, 10vw, 5rem);
+                font-size: clamp(2.2rem, 10vw, 4rem);
             }
 
             .project-grid, .skills-grid, .education-grid {
@@ -1412,40 +1472,41 @@
             }
             
             .project-card {
-                 height: 350px;
+                 height: 300px;
             }
 
             .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-item {
-                justify-content: flex-start !important;
+                left: 15px;
             }
 
             .timeline-item::before {
-                left: 20px;
+                left: 15px;
             }
 
             .timeline-content {
-                width: calc(100% - 60px);
+                width: calc(100% - 50px);
                 margin-left: 40px;
+                padding: 1.2rem;
             }
 
             .menu-container { 
                 flex-direction: column; 
-                gap: 2rem;
-                padding-top: 4rem;
+                justify-content: center;
+                gap: 1.5rem;
+                padding-top: 3rem;
+                height: 100%;
             }
             .menu-items { 
                 text-align: center; 
+                flex: 0 1 auto;
             }
             .menu-image { 
                 display: block;
                 flex-basis: auto;
-                width: 200px;
+                width: 180px;
                 height: 250px;
                 margin-top: 1rem;
+                flex-shrink: 0;
             }
 
             .scroll-indicator, .shape {
@@ -1454,10 +1515,59 @@
             
             .social-links {
                 gap: 1rem;
+                max-width: 350px;
+                margin: 0 auto;
             }
             
             .social-links a {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
+            }
+            
+            section {
+                padding: 4rem 1rem;
+                min-height: auto;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .skills-ticker {
+                padding: 1rem 0;
+            }
+            
+            .skill-item {
+                margin: 0 1rem;
+            }
+
+            .contact-link {
+                font-size: clamp(1.2rem, 5vw, 1.8rem);
+            }
+        }
+
+        /* Small Mobile Devices (up to 480px) */
+        @media (max-width: 480px) {
+            .hero h1 .hero-line {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .project-card {
+                height: 250px;
+            }
+            
+            .skill-card, .education-card {
+                padding: 1.5rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .menu-items a {
+                font-size: clamp(1.5rem, 6vw, 2.2rem);
             }
         }
 
@@ -1636,7 +1746,7 @@
     <section class="projects" id="work">
         <h2 class="section-title reveal">CREATIVE WORKS</h2>
         <div class="project-grid">
-            <div class="project-card reveal">
+            <div class="project-card reveal-right">
                 <div class="project-image-placeholder">Design Project Preview Coming Soon</div>
                 <div class="project-overlay">
                     <h3 class="project-title">Illustrator Artwork</h3>
@@ -1644,7 +1754,7 @@
                 </div>
                 <a href="#" class="project-link">→</a>
             </div>
-            <div class="project-card reveal">
+            <div class="project-card reveal-left">
                 <div class="project-image-placeholder">Design Project Preview Coming Soon</div>
                 <div class="project-overlay">
                     <h3 class="project-title">Photo Manipulation</h3>
@@ -1652,7 +1762,7 @@
                 </div>
                 <a href="#" class="project-link">→</a>
             </div>
-            <div class="project-card reveal">
+            <div class="project-card reveal-right">
                 <div class="project-image-placeholder">Design Project Preview Coming Soon</div>
                 <div class="project-overlay">
                     <h3 class="project-title">Brand Identity Concept</h3>
@@ -1660,7 +1770,7 @@
                 </div>
                 <a href="#" class="project-link">→</a>
             </div>
-            <div class="project-card reveal">
+            <div class="project-card reveal-left">
                 <div class="project-image-placeholder">Design Project Preview Coming Soon</div>
                 <div class="project-overlay">
                     <h3 class="project-title">Scientific Visualization</h3>
@@ -1676,21 +1786,21 @@
     <section class="journey" id="journey">
         <h2 class="section-title reveal">MY JOURNEY</h2>
         <div class="timeline">
-            <div class="timeline-item reveal">
+            <div class="timeline-item reveal-right">
                 <div class="timeline-content">
                     <div class="timeline-date">2013 - 2024</div>
                     <h3 class="timeline-title">School Education</h3>
                     <p class="timeline-desc">Completed primary and secondary education with a focus on science and mathematics, building a strong academic foundation.</p>
                 </div>
             </div>
-            <div class="timeline-item reveal">
+            <div class="timeline-item reveal-left">
                 <div class="timeline-content">
                     <div class="timeline-date">2021 - Now</div>
                     <h3 class="timeline-title">Discovering Design</h3>
                     <p class="timeline-desc">First ventured into the world of digital art with Adobe tools, sparking a new passion for visual communication and creativity.</p>
                 </div>
             </div>
-            <div class="timeline-item reveal">
+            <div class="timeline-item reveal-right">
                 <div class="timeline-content">
                     <div class="timeline-date">FUTURE</div>
                     <h3 class="timeline-title">Higher Education & Career</h3>
@@ -1704,13 +1814,13 @@
     <section class="education" id="education">
         <h2 class="section-title reveal">EDUCATION</h2>
         <div class="education-grid">
-            <div class="education-card ssc-card reveal">
+            <div class="education-card ssc-card reveal-left">
                 <div class="education-icon"><i class="fas fa-graduation-cap"></i></div>
                 <h3 class="education-level">Secondary School Certificate (SSC)</h3>
                 <p class="education-details">Science Group • Annada Govt. High School, Brahmanbaria</p>
                 <p class="education-year">2024 • GPA: 5.00</p>
             </div>
-            <div class="education-card designer-card reveal">
+            <div class="education-card designer-card reveal-right">
                 <div class="education-icon"><i class="fas fa-paint-brush"></i></div>
                 <h3 class="education-level">Self-Taught Designer</h3>
                 <p class="education-details">Online courses and extensive practice in graphic design</p>
@@ -1748,7 +1858,7 @@
             <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin social-icon"></i>LinkedIn</a>
             <a href="https://wa.me/8801955388687" target="_blank" rel="noopener noreferrer">
                 <svg class="whatsapp-icon" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M13.601,2.326A7.854,7.854,0,0,0,7.994,0C3.627,0.068,0.006,3.807,0,8.174A8.061,8.061,0,0,0,2.227,12.8L1.091,16l3.421-1.1a7.876,7.876,0,0,0,3.736.941h0.004c4.368,0,7.998-3.64,7.994-8.002C16.001,4.515,15.208,3.223,13.601,2.326z"/>
+                    <path d="M13.601,2.326A7.854,7.854,0,0,0,7.994,0C3.627,0.068,0.006,3.807,0,8.174A8.061,8.061,0,0,0,2.227,12.8L1.091,16l3.421-1.1a7.876,7.876,0,0,0,3.736,.941h0.004c4.368,0,7.998-3.64,7.994-8.002C16.001,4.515,15.208,3.223,13.601,2.326z"/>
                     <path fill="#000" d="M12.521,11.285c-0.224,0.636-1.118,1.164-1.843,1.303c-0.499,0.096-1.147,0.173-3.383-0.644c-2.886-1.054-4.722-3.656-4.87-3.826c-0.148-0.17-1.233-1.38-1.233-2.632c0-1.253,0.646-1.865,0.880-2.116c0.224-0.243,0.486-0.304,0.646-0.304c0.166,0,0.348-0.003,0.5,0.006c0.146,0.006,0.343,0.051,0.534,0.351c0.5,0.773,1.697,2.755,1.847,2.954c0.148,0.199,0.244,0.45,0.050,0.731c-0.193,0.282-0.292,0.45-0.585,0.719c-0.292,0.269-0.585,0.375-0.829,0.568c-0.146,0.117-0.244,0.243-0.097,0.473c0.146,0.232,0.646,1,1.389,1.619c0.951,0.799,1.746,1.05,1.991,1.171c0.244,0.117,0.389,0.1,0.534-0.049c0.146-0.148,0.624-0.729,0.792-0.979c0.170-0.251,0.339-0.208,0.585-0.117c0.244,0.092,1.547,0.729,1.813,0.859c0.268,0.131,0.439,0.193,0.500,0.304C12.721,10.6,12.745,10.649,12.521,11.285z"/>
                 </svg>
                 WhatsApp
